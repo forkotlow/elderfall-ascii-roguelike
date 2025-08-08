@@ -1,12 +1,11 @@
-#include "Renderer.h"
+#include "GameManager.h"
 
 #include <iostream>
 
 int main(){
 
-    Renderer renderer;
+    GameManager gameManager;
 
-    renderer.displayWholeMap();
 
     return 0;       
 }

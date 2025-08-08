@@ -2,19 +2,13 @@
 //Display map, player stats, other elements on terminal
 
 #include "Map.h"
-#include "Tile.h"
-
 #include <iostream>
 
 class Renderer{
-
-    Map map;
+private:
 
 public:
-    void displayWholeMap();
+    void displayWholeMap(Map& map);
 
-
-// Constructor
-    Renderer() : map(10,10) {}
 
 };

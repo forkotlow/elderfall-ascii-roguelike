@@ -11,10 +11,10 @@ public:
     Position position;
     bool isWalkable;
 
-    std::vector<Entity*> entities; //Vector storing entity on tile's location
+    std::vector<Entity*> entities; //Entity* vector storing entity on tile's location
 
     //Returns symbol of entity on toppest layer of tile (entities vector)
-    char getTopSymbol();
+    const char getTopEntitySymbol() const;
     void addEntityOnTile(Entity* entity); 
     void removeEntityOnTile();
 

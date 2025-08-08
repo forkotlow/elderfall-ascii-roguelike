@@ -9,6 +9,6 @@ public:
     int getX(){ return x; }
     int getY(){ return y; }
 
-    void setPosition(int _x = 0, int _y = 0){ x = _x; y = _y; }
+    void setPosition(int dx = 0, int dy = 0){ x = dx; y = dy; }
 
 };
