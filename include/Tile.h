@@ -7,15 +7,20 @@
 #include <vector>
 
 class Tile{
-public:
+private:
     Position position;
-    bool isWalkable;
+    bool hasCollision;
+    std::vector<Entity*> entities; //(aka. Tile Layer) Entity* vector storing entity on tile's location
 
-    std::vector<Entity*> entities; //Entity* vector storing entity on tile's location
+public:
 
-    //Returns symbol of entity on toppest layer of tile (entities vector)
+    bool getTileCollision() { return hasCollision; }
+    void setTileCollision(bool colValue) { hasCollision = colValue; }
+    
+    //Returns symbol(char) of top most entity of tile layer (entities vector)
     const char getTopEntitySymbol() const;
     void addEntityOnTile(Entity* entity); 
     void removeEntityOnTile();
+    void removeEntityOnTile(Entity* entity); //overload fnc.
 
 };

@@ -12,23 +12,30 @@ private:
     unsigned int index;
     std::vector< Map > maps;
 
+    
 public:
+    
+//main function to load map data into the maps vector/list
+    void loadMap() { maps = { Map(12,10), Map(), Map(10,6) }; /* Placeholder map data */ }
 
-// main function to load map data into the maps list/vector
-    void loadMap(){
-        maps = { Map(12,10), Map(), Map(10,6) };//placeholder data
-    }
-
-    Map& getCurrentMap(){
-        return maps[index]; 
-    }
+    Map& getCurrentMap() { return maps[index]; }
+    void changeCurrentMap( unsigned int newMapIndex );
+    char getTileSymbol(const int& tileX, const int& tileY) { return getCurrentMap().getGrid()[tileY][tileX].getTopEntitySymbol(); }
 
 
-//place an entity on tile
-    void placeEntity(Entity* entity, int newPosX, int newPosY){
-        getCurrentMap().getGridRef()[newPosY][newPosX].addEntityOnTile(entity);
-    }
+    void movePlayerOnTile(Entity* entity, int newPosX, int newPosY);
+    void removePlayerFromTile(int currentPosX, int currentPosY);
 
+
+    bool isWalkableTile(const int& tilePosX = 0, const int& tilePosY = 0 );
+
+
+    void placeEntity(Entity* entity, int newPosX, int newPosY);
+    void removeSpecificEntity(Entity* entity);
+
+
+
+// Constructor 
     LevelManager() : index(0) {}
 
 };

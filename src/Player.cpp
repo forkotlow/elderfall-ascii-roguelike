@@ -5,8 +5,10 @@
 
 
 
-
-void Player::updatePosition(int x, int y){ position.setPosition(x,y); }
+// set/updates player's current position 
+void Player::updatePosition(int x, int y){ 
+    position.setPosition(x,y); 
+}
 
 
 // Constructor with default name and symbol 

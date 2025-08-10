@@ -15,6 +15,8 @@ protected:
 public:
     std::string getName(){ return name; }
     char getSymbol(){ return symbol; }
+    int getPosX() { return position.getX(); }
+    int getPosY() { return position.getY(); }
 
     //Collision Check for Entity/Object
     bool isBlocking(){ return hasCollision; } 
@@ -24,5 +26,4 @@ public:
     void setCollision(bool value){ hasCollision = value; }
 
 };
-
 

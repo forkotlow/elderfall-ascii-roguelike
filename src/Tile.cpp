@@ -9,17 +9,36 @@ const char Tile::getTopEntitySymbol() const{
     } 
 }
 
+// pushback a entity into tile layer(entities vector)
 void Tile::addEntityOnTile(Entity* entity){
     entities.push_back(entity);
-    isWalkable = entity->isBlocking();
+    setTileCollision( entity->isBlocking() );
 }
 
-//future me: make an loop to remove an specific entity from the entities list 
+//Removes the top most entity from entities list of tile layer
 void Tile::removeEntityOnTile(){ 
     entities.pop_back(); 
+
     if( !entities.empty() ){ 
-        isWalkable = entities.back()->isBlocking(); 
+        setTileCollision( entities.back()->isBlocking() ) ;
     }else {
-         isWalkable = true; //is default ground 
+        setTileCollision(false); //is default ground collision value(false)
     }  
+}
+
+//Removes a specific Entity from entities list of tile layer
+void Tile::removeEntityOnTile(Entity* entity){ 
+    
+    for(int i = 0; i < entities.size(); ++i){
+        if( entity->getSymbol() == entities[i]->getSymbol() ){
+            entities.erase( (entities.begin() + i) ); 
+        }
+    }
+    
+    if( !entities.empty() ){ 
+        setTileCollision( entities.back()->isBlocking() ) ;
+    }else {
+        setTileCollision(false); //this is default ground collision value(false)
+    }  
+
 }
